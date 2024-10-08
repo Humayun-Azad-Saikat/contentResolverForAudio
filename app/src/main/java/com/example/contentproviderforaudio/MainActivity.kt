@@ -51,8 +51,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color.White
                 ) {
-                    //val audioContentResolver = AudioContentResolver(this)
-                    //val audioDatas = listOf<AudioDatas>()
+
                     LazyColumn(
                         modifier = Modifier.fillMaxSize()
                     ) {
