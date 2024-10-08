@@ -2,6 +2,7 @@ package com.example.contentproviderforaudio
 
 import android.Manifest
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore.Audio
 import androidx.activity.ComponentActivity
@@ -39,11 +40,13 @@ class MainActivity : ComponentActivity() {
 
         val audioContentResolver = AudioContentResolver(this)
 
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.READ_MEDIA_AUDIO),
-            0
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_MEDIA_AUDIO),
+                0
+            )
+        }
 
         setContent {
             ContentProviderForAudioTheme {
